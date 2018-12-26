@@ -1,0 +1,83 @@
+Player = game.Players.LocalPlayer
+Mouse = Player:GetMouse()
+function PressY(key)
+    if (key == "c") then
+      game.Players:Chat("bfg")		
+end
+end
+Mouse.KeyDown:connect(PressY)
+game:GetService("StarterGui"):SetCore("SendNotification",{
+                Title = "Notification",
+                Text = " Keybind [C]",
+                Duration = 15,
+            })
+local plr = game.Players.LocalPlayer
+local m = plr:GetMouse()
+local r = game:GetService("RunService").Heartbeat
+local h = plr.Character.Humanoid
+local prefix = ""
+local guns = {}
+local aim = false
+plr.Chatted:connect(function(cmd)
+   cmd=cmd:lower()
+   if cmd == prefix.."bfgaim" then
+       aim = not aim
+   end
+end)
+function addGuns()
+   local Weapons = plr.Backpack:GetChildren()
+   for c,f in ipairs(Weapons) do
+       if f.Name == "Shotty" or f.Name == "Uzi" or f.Name == "Glock" or f.Name == "Sawed Off" then
+           table.insert(guns, f)
+       end
+   end
+end
+function removeGuns()
+   h:UnequipTools()
+   for c,f in ipairs(guns) do
+       table.remove(guns, f)
+   end
+end
+local State = false
+plr.Chatted:connect(function(cmd)
+   cmd=cmd:lower()
+   if cmd == prefix.."bfg" then
+       if State == false then
+           State = true
+           addGuns()
+       elseif State == true then
+           State = false
+           removeGuns()
+       end
+   end
+end)
+m.Button1Down:connect(function()
+   if State == true then
+   for a,b in ipairs(guns) do
+       b.Fire:FireServer(m.Hit)
+   end
+   end
+end)
+r:connect(function()
+   if aim == true then
+   for a,b in ipairs(guns) do
+           if b and m.Target then
+       local h = m.Target.Parent:FindFirstChild("Humanoid")
+       if h then
+           local p = game.Players:FindFirstChild(h.Parent.Name)
+           if p then
+               b.Fire:FireServer(m.Hit)
+           end
+       end
+   end
+   end
+   end
+end)
+while true do
+   r:wait()
+   if State == true then
+   for a,b in ipairs(guns) do
+       b.Parent = plr.Character
+       end
+   end
+end

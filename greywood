@@ -1,0 +1,20 @@
+pmds = game.Workspace.PlayerModels
+PlaceS = game.ReplicatedStorage.PlaceStructure.ClientPlacedStructure
+
+function makegreywood(p)
+if p:FindFirstChild("MainCFrame") then
+Cframe = p.MainCFrame.Value
+else
+Cframe = p.PrimaryPart.CFrame
+end
+if p:FindFirstChild("Type") and p.Type.Value == "Blueprint" and p ~= nil then
+PlaceS:FireServer(p.ItemName.Value, Cframe, game.Players.LocalPlayer, nil, p, true)
+wait()
+end
+end
+
+for i, v in pairs(pmds:GetChildren()) do
+if v:FindFirstChild("Owner") and v.Owner.Value ~= nil and v.Owner.Value == game.Players.LocalPlayer and v:FindFirstChild("ItemName") and v:FindFirstChild("Type") and (v.PrimaryPart ~= nil or v:FindFirstChild("MainCFrame")) and v.Type.Value == "Blueprint" then
+makegreywood(v)
+end
+end

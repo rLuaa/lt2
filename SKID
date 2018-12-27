@@ -1,0 +1,260 @@
+local function anim1()
+for _,v in pairs(game.Players.LocalPlayer.Character.Animate.walk:GetChildren()) do
+    v.AnimationId = 'rbxassetid://451687057'
+end
+for _,v in pairs(game.Players.LocalPlayer.Character.Animate.jump:GetChildren()) do
+    v.AnimationId = 'rbxassetid://229782914'
+end
+for _,v in pairs(game.Players.LocalPlayer.Character.Animate.idle:GetChildren()) do
+    v.AnimationId = 'rbxassetid://451686028'
+end
+end
+
+local function anim2()
+for _,v in pairs(game.Players.LocalPlayer.Character.Animate.walk:GetChildren()) do
+    v.AnimationId = 'rbxassetid://1173927279'
+end
+for _,v in pairs(game.Players.LocalPlayer.Character.Animate.jump:GetChildren()) do
+    v.AnimationId = 'rbxassetid://229782914'
+end
+for _,v in pairs(game.Players.LocalPlayer.Character.Animate.idle:GetChildren()) do
+    v.AnimationId = 'rbxassetid://1173927279'
+end
+end
+
+
+local prefix = ""
+game.Players.LocalPlayer.Chatted:connect(function(cmd)
+cmd=cmd:lower()
+if cmd == prefix.."spin" then
+local IgnoreMe = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local idbox = Instance.new("TextBox")
+local playbutton = Instance.new("TextButton")
+local ignoreme = Instance.new("TextLabel")
+local anim1b = Instance.new("TextButton")
+local anim2b = Instance.new("TextButton")
+local currentanim = Instance.new("TextLabel")
+local ignoreme2 = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+IgnoreMe.Name = "IgnoreMe"
+IgnoreMe.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+main.Name = "main"
+main.Parent = IgnoreMe
+main.BackgroundColor3 = Color3.new(0.137255, 0.137255, 0.137255)
+main.BorderSizePixel = 0
+main.Position = UDim2.new(0.42266643, 0, 0.4089742, 0)
+main.Size = UDim2.new(0, 295, 0, 195)
+idbox.Name = "idbox"
+idbox.Parent = main
+idbox.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+idbox.BorderSizePixel = 0
+idbox.Position = UDim2.new(0.0313656144, 0, 0.390565783, 0)
+idbox.Size = UDim2.new(0, 129, 0, 41)
+idbox.Font = Enum.Font.SourceSans
+idbox.Text = "id here pls"
+idbox.TextColor3 = Color3.new(1, 1, 1)
+idbox.TextSize = 14
+playbutton.Name = "playbutton"
+playbutton.Parent = main
+playbutton.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+playbutton.BorderSizePixel = 0
+playbutton.Position = UDim2.new(0.0322588757, 0, 0.661118925, 0)
+playbutton.Size = UDim2.new(0, 129, 0, 38)
+playbutton.Font = Enum.Font.SourceSans
+playbutton.Text = "play"
+playbutton.TextColor3 = Color3.new(1, 1, 1)
+playbutton.TextSize = 20
+ignoreme.Name = "ignoreme"
+ignoreme.Parent = main
+ignoreme.BackgroundColor3 = Color3.new(1, 1, 1)
+ignoreme.BackgroundTransparency = 1
+ignoreme.BorderSizePixel = 0
+ignoreme.Position = UDim2.new(0.751671731, 0, 0.908997536, 0)
+ignoreme.Size = UDim2.new(0, 73, 0, 19)
+ignoreme.Font = Enum.Font.SourceSans
+ignoreme.Text = "made by emil#3985"
+ignoreme.TextColor3 = Color3.new(1, 1, 1)
+ignoreme.TextSize = 10
+anim1b.Name = "anim1b"
+anim1b.Parent = main
+anim1b.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+anim1b.BorderSizePixel = 0
+anim1b.Position = UDim2.new(0.522183299, 0, 0.390565783, 0)
+anim1b.Size = UDim2.new(0, 129, 0, 41)
+anim1b.Font = Enum.Font.SourceSans
+anim1b.Text = "animation 1"
+anim1b.TextColor3 = Color3.new(1, 1, 1)
+anim1b.TextSize = 20
+anim2b.Name = "anim2b"
+anim2b.Parent = main
+anim2b.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+anim2b.BorderSizePixel = 0
+anim2b.Position = UDim2.new(0.522183239, 0, 0.661118925, 0)
+anim2b.Size = UDim2.new(0, 129, 0, 38)
+anim2b.Font = Enum.Font.SourceSans
+anim2b.Text = "animation 2"
+anim2b.TextColor3 = Color3.new(1, 1, 1)
+anim2b.TextSize = 20
+currentanim.Name = "currentanim"
+currentanim.Parent = main
+currentanim.BackgroundColor3 = Color3.new(1, 1, 1)
+currentanim.BackgroundTransparency = 1
+currentanim.BorderSizePixel = 0
+currentanim.Position = UDim2.new(0.277966112, 0, 0.908997536, 0)
+currentanim.Size = UDim2.new(0, 129, 0, 18)
+currentanim.Font = Enum.Font.SourceSans
+currentanim.Text = "Current Animation: 0"
+currentanim.TextColor3 = Color3.new(1, 1, 1)
+currentanim.TextSize = 14
+ignoreme2.Name = "ignoreme2"
+ignoreme2.Parent = main
+ignoreme2.BackgroundColor3 = Color3.new(1, 1, 1)
+ignoreme2.Position = UDim2.new(0.495999992, 0, 0.351000011, 0)
+ignoreme2.Size = UDim2.new(0, 1, 0, 109)
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.new(1, 1, 1)
+title.BackgroundTransparency = 1
+title.BorderSizePixel = 0
+title.Position = UDim2.new(0.213682428, 0, 0.0461538471, 0)
+title.Size = UDim2.new(0, 167, 0, 50)
+title.Font = Enum.Font.SourceSans
+title.Text = "boombox gui v2"
+title.TextColor3 = Color3.new(1, 1, 1)
+title.TextSize = 20
+
+
+
+local function spin()
+local id = idbox.text
+local mouse = game.Players.LocalPlayer:GetMouse()
+for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if v.Name == "BoomBox" then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+if game.Players.LocalPlayer.Character:FindFirstChild("BoomBox") ~= nil then
+game.Players.LocalPlayer.Character.BoomBox.Remote:FireServer("PlaySong", id)
+wait(0.1)
+game.Players.LocalPlayer.Character.BoomBox.Server:Destroy()
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+end
+end
+end
+for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+if v.Name == "BoomBox" then
+while true do
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(-0.001, -1, 0.005)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(-1.379, -1.538, -4.341)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(-1, 0.001, -0.014)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(-0.014, 0.005, 1)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(-0.003, -1, 0.004)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(-1.339, -1.538, -5.056)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(-0.871, 0.001, -0.491)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(-0.491, 0.005, 0.871)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(-0.005, -1, 0.002)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(-0.97, -1.538, -5.581)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(-0.522, 0.001, -0.853)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(-0.853, 0.005, 0.522)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(-0.005, -1, -0.001)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(0.003, -1.538, -5.755)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(0.026, 0.001, -1)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(-1, 0.005, -0.026)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(-0.004, -1, -0.003)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(0.503, -1.538, -5.655)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(0.49, 0.001, -0.872)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(-0.872, 0.005, -0.49)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(-0.002, -1, -0.005)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(1.132, -1.538, -5.18)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(0.867, 0.001, -0.499)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(-0.499, 0.005, -0.867)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(0.001, -1, -0.005)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(1.349, -1.538, -4.621)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(1, 0.001, 0.003)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(0.003, 0.005, -1)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(0.003, -1, -0.004)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(1.232, -1.538, -3.909)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(0.861, 0.001, 0.509)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(0.509, 0.005, -0.861)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(0.005, -1, -0.002)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(0.821, -1.538, -3.38)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(0.501, 0.001, 0.866)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(0.866, 0.005, -0.501)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(0.005, -1, 0.001)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(0.144, -1.538, -3.135)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(-0.005, 0.001, 1)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(1, 0.005, 0.005)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(0.004, -1, 0.003)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(-0.656, -1.538, -3.221)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(-0.481, 0.001, 0.877)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(0.877, 0.005, 0.481)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+wait(0.1)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+game.Players.LocalPlayer.Backpack.BoomBox.GripForward = Vector3.new(0.002, -1, 0.005)
+game.Players.LocalPlayer.Backpack.BoomBox.GripPos     = Vector3.new(-1.131, -1.538, -3.591)
+game.Players.LocalPlayer.Backpack.BoomBox.GripRight   = Vector3.new(-0.859, 0.001, 0.511)
+game.Players.LocalPlayer.Backpack.BoomBox.GripUp      = Vector3.new(0.511, 0.005, 0.859)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+game.Players.LocalPlayer.Character.Humanoid:UnequipTools(v)
+end
+end
+end
+end
+
+
+anim1b.MouseButton1Click:Connect(function()
+currentanim.Text = "Current Animation: 1"
+end)
+
+anim2b.MouseButton1Click:Connect(function()
+currentanim.Text = "Current Animation: 2"
+end)
+
+
+playbutton.MouseButton1Click:Connect(function()
+	if currentanim.Text == "Current Animation: 1" then
+	anim1()
+	IgnoreMe:Destroy()
+	spin()
+	elseif currentanim.Text == "Current Animation: 2" then
+	anim2()
+	IgnoreMe:Destroy()
+	spin()
+	elseif currentanim.Text == "Current Animation: 0" then
+	currentanim.Text = "please select a animation"
+	wait(1)
+	currentanim.Text = "Current Animation: 0"
+end
+end)
+end
+end)

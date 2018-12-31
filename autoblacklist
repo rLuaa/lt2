@@ -1,0 +1,9 @@
+Client = game.ReplicatedStorage.Interaction.ClientSetListPlayer
+for i, v in pairs(game.Players:GetPlayers()) do
+	if v.Name ~= game.Players.LocalPlayer.Name then
+		Client:InvokeServer(game.Players.LocalPlayer.BlacklistFolder, v, true)
+	end
+end
+game.Players.PlayerAdded:connect(function(plr)
+	Client:InvokeServer(game.Players.LocalPlayer.BlacklistFolder, plr, true)
+end)

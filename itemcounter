@@ -1,0 +1,20 @@
+local Counter = Instance.new("ScreenGui")
+local CounterButton = Instance.new("TextButton")
+Counter.Name = "Counter"
+Counter.Parent = game.CoreGui
+CounterButton.Name = "CounterButton"
+CounterButton.Parent = Counter
+CounterButton.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+CounterButton.BackgroundTransparency = 0.30000001192093
+CounterButton.BorderSizePixel = 0
+CounterButton.Position = UDim2.new(0.0591057241, 0, 0.126617789, 0)
+CounterButton.Size = UDim2.new(0, 83, 0, 34)
+CounterButton.Font = Enum.Font.SourceSans
+CounterButton.Text = "Counter"
+CounterButton.TextColor3 = Color3.new(1, 1, 1)
+CounterButton.TextSize = 20
+CounterButton.Draggable = true
+while true do
+wait(0.5)
+CounterButton.Text = #game.Players.LocalPlayer:GetChildren() - 6
+end

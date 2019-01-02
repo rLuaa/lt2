@@ -1,0 +1,44 @@
+local toolamount = 49
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local savepos = LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame
+local characters = {}
+LocalPlayer.Character:FindFirstChild("Humanoid"):UnequipTools()
+local currentamount = #LocalPlayer.Backpack:GetChildren()
+LocalPlayer.Character.Archivable = true
+local tempchar = LocalPlayer.Character:Clone()
+tempchar.Parent = workspace
+repeat
+workspace.CurrentCamera.CameraSubject = tempchar:FindFirstChild("Humanoid")
+for _, tool in pairs(LocalPlayer.Backpack:GetChildren()) do
+if tool:IsA("Tool") then
+if tool.Name == "Shotty" then
+wait(0.7)
+tool.Parent = LocalPlayer
+end
+end
+end
+LocalPlayer.Character:ClearAllChildren()
+local char = Instance.new("Model", workspace)
+table.insert(characters, char)
+Instance.new("Humanoid", char)
+LocalPlayer.Character = char
+repeat wait() until LocalPlayer.Character
+until #LocalPlayer:GetChildren() - 4 - currentamount >= toolamount
+for _, char in pairs(characters) do
+char:Destroy()
+end
+repeat wait() until LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = savepos
+for _, tool in pairs(LocalPlayer:GetChildren()) do
+if tool:IsA("Tool") then
+if tool.Name == "Shotty" then
+tool.Parent = LocalPlayer.Backpack
+end
+end
+end
+tempchar:Destroy()
+for i = 0, toolamount do
+game.Players.LocalPlayer.Backpack.Shotty.Parent = game.Players.LocalPlayer
+end
+wait(1)
+game.Players.LocalPlayer.Character:BreakJoints()
